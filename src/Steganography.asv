@@ -34,6 +34,8 @@ classdef Steganography < handle
             set(self.handles.popupmenu_chooseimage,'Value',2); self.photo='PapaNoel';
             set(self.handles.popupmenu_quality,'String',{'100','95','90','85','80','75','70','60','50'})
             set(self.handles.popupmenu_quality,'Value',1); self.quality=100;
+            set(self.handles.popupmenu_quality_2,'String',{'100','95','90','85','80','75','70','60','50'})
+            set(self.handles.popupmenu_quality_2,'Value',1); self.decodeQuality=100;
             %%------Set callbacks-------------------        
             %botones
             set(self.handles.pushbutton_makesteg,'callback',@self.pushbutton_makesteg_callback);
@@ -41,6 +43,7 @@ classdef Steganography < handle
             %popupmenu
             set(self.handles.popupmenu_chooseimage,'callback',@self.popupmenu_chooseimage_callback); % cambia el nombre del popup menu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
+            set(self.handles.popupmenu_quality_2,'callback',@self.popupmenu_quality_2_callback);
             
             %edit texts:
             set(self.handles.edit_hidemsg,'callback',@self.edit_hidemsg_callback);
@@ -85,12 +88,12 @@ classdef Steganography < handle
             
             %analisis de existencia de archivo + funcion de decodificacion
             
-            if exist(strcat(self.decoFile, '.jpg'),'file')==2
-                [string, porcentaje]=decoderStegFinal(strcat('encoded\', self.decoFile, '.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
+            if exist(self.decoFile,'file')==2
+                [string, porcentaje]=decoderStegFinal(strcat('encoded\', self.decoFile, '.jpg'),self.decodeQuality,self.Spread,self.DCTSize,self.Repetition);
                
                 set(msgbox(string,sprintf('Mensaje decodificado (HR=%.2f porciento )',porcentaje)), 'position', [100 440 400 50]);
             else
-                 msgbox('No valid file entered, verify it is in the correct folder (endoded) and the file is correcly written');
+                 msgbox('No valid file entered, verify it is in the correct folder and try again');
                 return
             end
             
@@ -158,6 +161,29 @@ classdef Steganography < handle
                     self.quality=50;
             end
         end
+        function popupmenu_quality_2_callback(self,varargin)
+            switch get(self.handles.popupmenu_quality_2,'Value') %%es el valor de la posición del string que elegi
+                case 1
+                    self.decodeQuality=100;
+                case 2
+                    self.decodeQuality=95;
+                case 3
+                    self.decodeQuality=90;
+                case 4
+                    self.decodeQuality=85;
+                case 5
+                    self.decodeQuality=80;
+                case 6
+                    self.decodeQuality=75;
+                case 7
+                    self.decodeQuality=70;
+                case 8
+                    self.decodeQuality=60;
+                case 9
+                    self.decodeQuality=50;
+            end
+        end
+       
         %RadioButton
         function radiobutton_spread_callback (self, varargin)
            if get(self.handles.radiobutton_spread,'Value')
