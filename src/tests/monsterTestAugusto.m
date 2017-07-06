@@ -216,9 +216,6 @@
     
     quality=80;
  % usar la tabla según la calidad requerida
-    if nargin < 3
-        quality = 70; %default quality
-    end
     if quality==50
        cuantifTableUsedLuminance=Q_50_Y;
        cuantifTableUsedChrominance=Q_50_C; 

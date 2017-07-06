@@ -11,11 +11,11 @@ classdef Steganography < handle
         
         %%De compresion
         photo='';
-        hiddenmessage='No escribieron nada';
+        hiddenmessage='Escribe tu mensaje aqui';
         quality=0;
         
         %%De decodificacion
-        decoFile='';
+        decoFile='Pruebas';
         decodeQuality=0;
         decodedMessage='';
     end
@@ -31,8 +31,8 @@ classdef Steganography < handle
             set(self.handles.pushbutton_makesteg,'String','Make Steganography'); %la clase madre.a que tag, a que propiedad, y que valor le quiero poner
             set(self.handles.pushbutton_decode,'String','Obtain Message');
             %Pop up menus
-            set(self.handles.popupmenu_chooseimage,'String',{'Rey_Alfonso.jpg','PapaNoel.jpg','pepper.bmp','militar.jpg','IMG_0550.JPG','DSC_0001.JPG','Astronauta.jpg','Alumnos.jpg'}); % cambia el nombre del popup menu
-            set(self.handles.popupmenu_chooseimage,'Value',2); self.photo='PapaNoel.jpg';
+            set(self.handles.popupmenu_chooseimage,'String',{'Rey Alfonso','Papa Noel','pepper','militar','IMG0550','DSC_0001','Astronauta','Alumnos'}); % cambia el nombre del popup menu
+            set(self.handles.popupmenu_chooseimage,'Value',2); self.photo='PapaNoel';
             set(self.handles.popupmenu_quality,'String',{'100','95','90','85','80','75','70','60','50'})
             set(self.handles.popupmenu_quality,'Value',1); self.quality=100;
             set(self.handles.popupmenu_quality_2,'String',{'100','95','90','85','80','75','70','60','50'})
@@ -48,7 +48,9 @@ classdef Steganography < handle
             
             %edit texts:
             set(self.handles.edit_hidemsg,'callback',@self.edit_hidemsg_callback);
+            set(self.handles.edit_hidemsg,'String', self.hiddenmessage);
             set(self.handles.edit_decofile,'callback',@self.edit_decofile_callback);
+            set(self.handles.edit_decofile,'String',self.decoFile);
             set(self.handles.edit_dct,'callback',@self.edit_dct_callback);
             set(self.handles.edit_dct,'String',self.DCTSize);
             set(self.handles.edit_repetition,'callback',@self.edit_repetition_callback);
@@ -67,8 +69,8 @@ classdef Steganography < handle
             end
 
            %%para medir la psnr y ssim
-           original=imread(self.photo);
-           retocada=encoderStegFinal(self.hiddenmessage,strcat('images\', self.photo),strcat('encoded\', 'Pruebas.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
+           original=imread(strcat(self.photo, '.jpg'));
+           retocada=encoderStegFinal(self.hiddenmessage,strcat('images\', self.photo, '.jpg'),strcat('encoded\', self.decoFile, '.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
            [psnr,ssim,map]=evaluateDeterioration(retocada,original);
            figure('Name','Comparison','NumberTitle','off');
            subplot(1,2,1); image(original); title('Original'); subplot(1,2,2); image(retocada); 
@@ -88,7 +90,7 @@ classdef Steganography < handle
             %analisis de existencia de archivo + funcion de decodificacion
             
             if exist(self.decoFile,'file')==2
-                [string, porcentaje]=decoderStegFinal(strcat('encoded\', self.decoFile),self.decodeQuality,self.Spread,self.DCTSize,self.Repetition);
+                [string, porcentaje]=decoderStegFinal(strcat('encoded\', self.decoFile, '.jpg'),self.decodeQuality,self.Spread,self.DCTSize,self.Repetition);
                
                 set(msgbox(string,sprintf('Mensaje decodificado (HR=%.2f porciento )',porcentaje)), 'position', [100 440 400 50]);
             else
@@ -121,21 +123,21 @@ classdef Steganography < handle
         function popupmenu_chooseimage_callback(self,varargin)
             switch get(self.handles.popupmenu_chooseimage,'Value') %%es el valor de la posición del string que elegi
                 case 1
-                    self.photo='Rey_Alfonso.jpg';
+                    self.photo='Rey_Alfonso';
                 case 2
-                    self.photo='PapaNoel.jpg';
+                    self.photo='PapaNoel';
                 case 3
-                    self.photo='pepper.bmp';
+                    self.photo='pepper';    % TODO: this image is a bmp
                 case 4
-                    self.photo='militar.jpg';
+                    self.photo='militar';
                 case 5
-                    self.photo='IMG_0550.JPG';
+                    self.photo='IMG_0550';
                 case 6
-                    self.photo='DSC_0001.JPG';
+                    self.photo='DSC_0001';
                 case 7
-                    self.photo='Astronauta.jpg';
+                    self.photo='Astronauta';
                 case 8
-                    self.photo='Alumnos.jpg';
+                    self.photo='Alumnos';
             end
         end
         function popupmenu_quality_callback(self,varargin)
