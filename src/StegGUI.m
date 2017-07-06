@@ -22,7 +22,7 @@ function varargout = StegGUI(varargin)
 
 % Edit the above text to modify the response to help StegGUI
 
-% Last Modified by GUIDE v2.5 05-Jul-2017 15:55:14
+% Last Modified by GUIDE v2.5 05-Jul-2017 22:22:04
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -269,3 +269,10 @@ function edit_repetition_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton_run.
+function pushbutton_run_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_run (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

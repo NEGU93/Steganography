@@ -8,6 +8,7 @@ classdef Steganography < handle
         DCTSize=8;
         Repetition=4;
         Spread=false;
+        Encode=true;    % This should be true because it will start with the edit_hidmsg as enable. 
         
         %%De compresion
         photo='';
@@ -27,8 +28,7 @@ classdef Steganography < handle
             
             %%Seteos:
             %Pushbuttons
-            set(self.handles.pushbutton_makesteg,'String','Make Steganography'); %la clase madre.a que tag, a que propiedad, y que valor le quiero poner
-            set(self.handles.pushbutton_decode,'String','Obtain Message');
+            set(self.handles.pushbutton_run, 'String', 'Encode');
             %Pop up menus
             set(self.handles.popupmenu_chooseimage,'String',{'Rey Alfonso','Papa Noel','pepper','militar','IMG0550','DSC_0001','Astronauta','Alumnos'}); % cambia el nombre del popup menu
             set(self.handles.popupmenu_chooseimage,'Value',2); self.photo='PapaNoel';
@@ -36,12 +36,10 @@ classdef Steganography < handle
             set(self.handles.popupmenu_quality,'Value',1); self.quality=100;
             %%------Set callbacks-------------------        
             %botones
-            set(self.handles.pushbutton_makesteg,'callback',@self.pushbutton_makesteg_callback);
-            set(self.handles.pushbutton_decode,'callback',@self.pushbutton_decode_callback);
+            set(self.handles.pushbutton_run, 'callback', @self.pushbutton_run_callback);
             %popupmenu
             set(self.handles.popupmenu_chooseimage,'callback',@self.popupmenu_chooseimage_callback); % cambia el nombre del popup menu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
-            
             %edit texts:
             set(self.handles.edit_hidemsg,'callback',@self.edit_hidemsg_callback);
             set(self.handles.edit_hidemsg,'String', self.hiddenmessage);
@@ -53,12 +51,21 @@ classdef Steganography < handle
             set(self.handles.edit_repetition,'String',self.Repetition);
             
             %Radio Button
+            set(self.handles.radiobutton_encode, 'callback', @self.radiobutton_encode_callback);
+            set(self.handles.radiobutton_decode, 'callback', @self.radiobutton_decode_callback);
             set(self.handles.radiobutton_spread,'callback',@self.radiobutton_spread_callback);
         end
         
         %%----Hago los callbacks es decir las funciones-----
         %pushbutton
-        function pushbutton_makesteg_callback (self, varargin)
+        function pushbutton_run_callback(self, varargin)
+            if self.Encode
+                self.makesteg()
+            else
+                self.decode()
+            end
+        end
+        function makesteg(self, varargin)
             if isempty(self.hiddenmessage)
                 msgbox('No message to hide was entered, please insert one');
                 return
@@ -76,8 +83,7 @@ classdef Steganography < handle
            title('Mapa de Structural Similarity (Análisis cualitativo)')
            msgbox('Steganography Succesfull')
         end
-        
-        function pushbutton_decode_callback (self, varargin)
+        function decode(self, varargin)
             if isempty(self.decoFile)
                 msgbox('No file name entered, please insert name of file to recover message');
                 return
@@ -92,21 +98,15 @@ classdef Steganography < handle
             else
                  msgbox('No valid file entered, verify it is in the correct folder (endoded) and the file is correcly written');
                 return
-            end
-            
-            
-            
-            
+            end   
         end
-    
         %edit texts
         function edit_hidemsg_callback (self,varargin)
             self.hiddenmessage = get(self.handles.edit_hidemsg,'String'); %%de donde quiero gettear y que quiero getear
         end
         function edit_decofile_callback (self,varargin)
             self.decoFile = get(self.handles.edit_decofile,'String'); %%de donde quiero gettear y que quiero getear
-        end
-        
+        end    
         function edit_dct_callback (self,varargin)
             self.DCTSize = str2int(get(self.handles.edit_dct,'String'));  %%de donde quiero gettear y que quiero getear
         end
@@ -165,9 +165,19 @@ classdef Steganography < handle
            else 
               self.Spread=false; 
            end
+        end      
+        function radiobutton_encode_callback (self, varargin)
+            self.Encode = true;
+            set(self.handles.edit_hidemsg, 'Enable', 'on');
+            set(self.handles.text_output_file, 'String', 'Output File:')
+            set(self.handles.pushbutton_run, 'String', 'Encode');
         end
-        
+        function radiobutton_decode_callback (self, varargin)
+            self.Encode = false;
+            set(self.handles.edit_hidemsg, 'Enable', 'off');
+            set(self.handles.text_output_file, 'String', 'Encoded File:')
+            set(self.handles.pushbutton_run, 'String', 'Decode');
+        end
     end
-    
 end
 
