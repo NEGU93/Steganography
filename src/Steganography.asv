@@ -1,6 +1,5 @@
 classdef Steganography < handle
-
-    
+    %% Variables
     properties %aca van las variables
         handles;
         %%ambas
@@ -19,8 +18,9 @@ classdef Steganography < handle
         decoFile='Pruebas';
         decodedMessage='';
     end
-    
+
     methods %especie de funciones a utilizar
+        %% Métodos
         function self=Steganography(~)
             hfig=hgload('StegGUI');
             self.handles = guihandles(hfig);
@@ -31,9 +31,11 @@ classdef Steganography < handle
             set(self.handles.pushbutton_run, 'String', 'Encode');
             %Pop up menus
             set(self.handles.popupmenu_chooseimage,'String',{'Rey Alfonso','Papa Noel','pepper','militar','IMG0550','DSC_0001','Astronauta','Alumnos'}); % cambia el nombre del popup menu
-            set(self.handles.popupmenu_chooseimage,'Value',2); self.photo='PapaNoel';
+            set(self.handles.popupmenu_chooseimage,'Value',1);
+            self.popupmenu_chooseimage_callback()
             set(self.handles.popupmenu_quality,'String',{'100','95','90','85','80','75','70','60','50'})
-            set(self.handles.popupmenu_quality,'Value',1); self.quality=100;
+            set(self.handles.popupmenu_quality,'Value',5); 
+            self.popupmenu_quality_callback()
             %%------Set callbacks-------------------        
             %botones
             set(self.handles.pushbutton_run, 'callback', @self.pushbutton_run_callback);
@@ -56,7 +58,7 @@ classdef Steganography < handle
             set(self.handles.radiobutton_spread,'callback',@self.radiobutton_spread_callback);
         end
         
-        %%----Hago los callbacks es decir las funciones-----
+        %% ----Hago los callbacks es decir las funciones-----
         %pushbutton
         function pushbutton_run_callback(self, varargin)
             if self.Encode
@@ -70,17 +72,26 @@ classdef Steganography < handle
                 msgbox('No message to hide was entered, please insert one');
                 return
             end
-
+           h = msgbox('encoding, please wait...', 'Loading');
+           child = get(h, 'Children');
+           delete(child(1));
+           drawnow;
+           set(self.handles.text_hidden_msg, 'String', self.hiddenmessage);
            %%para medir la psnr y ssim
            original=imread(strcat(self.photo, '.jpg'));
            retocada=encoderStegFinal(self.hiddenmessage,strcat('images\', self.photo, '.jpg'),strcat('encoded\', self.decoFile, '.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
-           [psnr,ssim,map]=evaluateDeterioration(retocada,original);
-           figure('Name','Comparison','NumberTitle','off');
-           subplot(1,2,1); image(original); title('Original'); subplot(1,2,2); image(retocada); 
-           title(sprintf('Retocada. Q=%d PSNR=%.1f [dB] SSIM=%.4f',self.quality,psnr,ssim));
-           figure('Name','SSIM map','NumberTitle','off');
-           image(map);
-           title('Mapa de Structural Similarity (Análisis cualitativo)')
+           [psnr,ssim,map] = evaluateDeterioration(retocada,original);
+           % figure('Name','Comparison','NumberTitle','off');
+           % image(self.handles.axes_original_image, original)
+           imshow(original, 'Parent', self.handles.axes_original_image)
+           imshow(retocada, 'Parent', self.handles.axes_encoded_image)
+           % title(sprintf('Retocada. Q=%d PSNR=%.1f [dB] SSIM=%.4f',self.quality,psnr,ssim));
+           % figure('Name','SSIM map','NumberTitle','off');
+           imshow(map, 'Parent', self.handles.axes_SSIM_map)
+           set(self.handles.text_psnr, 'String', strcat('PSNR = ', num2str(psnr)));
+           set(self.handles.text_ssim, 'String', strcat('SSIM = ', num2str(ssim)));
+           % title('Mapa de Structural Similarity (Análisis cualitativo)')
+           delete(h)
            msgbox('Steganography Succesfull')
         end
         function decode(self, varargin)
@@ -92,9 +103,16 @@ classdef Steganography < handle
             %analisis de existencia de archivo + funcion de decodificacion
             
             if exist(strcat(self.decoFile, '.jpg'),'file')==2
+                h = msgbox('decoding, please wait...', 'Loading');
+                child = get(h, 'Children');
+                delete(child(1));
+                drawnow;
                 [string, porcentaje]=decoderStegFinal(strcat('encoded\', self.decoFile, '.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
-               
-                set(msgbox(string,sprintf('Mensaje decodificado (HR=%.2f porciento )',porcentaje)), 'position', [100 440 400 50]);
+                imshow(imread(strcat(self.decoFile, '.jpg')), 'Parent', self.handles.axes_encoded_image) 
+                set(self.handles.text_hidden_msg, 'String', string);
+                set(self.handles.text_hr, 'String', strcat('HR = ', num2str(porcentaje)));
+                delete(h)
+                % set(msgbox(string,sprintf('Mensaje decodificado (HR=%.2f porciento )',porcentaje)), 'position', [100 440 400 50]);
             else
                  msgbox('No valid file entered, verify it is in the correct folder (endoded) and the file is correcly written');
                 return
@@ -109,12 +127,11 @@ classdef Steganography < handle
         end    
         function edit_dct_callback (self,varargin)
             self.DCTSize = str2int(get(self.handles.edit_dct,'String'));  %%de donde quiero gettear y que quiero getear
+            
         end
         function edit_repetition_callback (self,varargin)
             self.Repetition = str2int(get(self.handles.edit_repetition,'String')); %%de donde quiero gettear y que quiero getear
         end
-        
-       
         %popupmenu
         function popupmenu_chooseimage_callback(self,varargin)
             switch get(self.handles.popupmenu_chooseimage,'Value') %%es el valor de la posición del string que elegi
@@ -170,11 +187,15 @@ classdef Steganography < handle
             self.Encode = true;
             set(self.handles.edit_hidemsg, 'Enable', 'on');
             set(self.handles.text_output_file, 'String', 'Output File:')
+            set(self.handles.pushbutton_run, 'String', 'Encode');
+            set(self.handles.popupmenu_chooseimage, 'Enable', 'on');
         end
         function radiobutton_decode_callback (self, varargin)
             self.Encode = false;
             set(self.handles.edit_hidemsg, 'Enable', 'off');
             set(self.handles.text_output_file, 'String', 'Encoded File:')
+            set(self.handles.pushbutton_run, 'String', 'Decode');
+            set(self.handles.popupmenu_chooseimage, 'Enable', 'off');
         end
     end
 end

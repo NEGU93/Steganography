@@ -22,7 +22,7 @@ function varargout = StegGUI(varargin)
 
 % Edit the above text to modify the response to help StegGUI
 
-% Last Modified by GUIDE v2.5 05-Jul-2017 22:22:04
+% Last Modified by GUIDE v2.5 05-Jul-2017 23:54:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
