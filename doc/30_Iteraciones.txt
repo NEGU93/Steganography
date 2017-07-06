@@ -1,0 +1,68 @@
+DCT quality: 90
+JPEG reconvertions: 30
+Reconvertions quality: 90
+
+Iter num  avg abs pxl err     max abs pxl err     msg bit err prob (%)
+0         1.6726              19                  2.37816
+1         1.68352             18                  10.3078
+2         1.70092             18                  10.1393
+3         1.70762             18                  10.1414
+4         1.71113             18                  10.1208
+5         1.71277             20                  10.1249
+6         1.71373             20                  10.1239
+7         1.71427             20                  10.1239
+8         1.71483             20                  10.1249
+9         1.7151              22                  10.1249
+10        1.71528             23                  10.1249
+11        1.71539             25                  10.1249
+12        1.71549             25                  10.1249
+13        1.71555             27                  10.1249
+14        1.71565             29                  10.1249
+15        1.71569             29                  10.1249
+16        1.71573             29                  10.1249
+17        1.71579             29                  10.1249
+18        1.71584             29                  10.1249
+19        1.71584             29                  10.1249
+20        1.71584             29                  10.1249
+21        1.71586             29                  10.1249
+22        1.71588             29                  10.1249
+23        1.71589             29                  10.1249
+24        1.71589             29                  10.1249
+25        1.71589             29                  10.1249
+26        1.71589             29                  10.1249
+27        1.71589             29                  10.1249
+28        1.71589             29                  10.1249
+29        1.71589             29                  10.1249
+30        1.71589             29                  10.1249
+
+Message:
+Watermark - This image is copyrighted by Marvel! Op. Code: 123456789
+
+Message Length: 69
+Message repetitions: 176
+Successful      message probability: 1 - 1.64586e-085
+Recovered message:
+Watermark - This image is copyrighted by Marvel! Op. Code: 123456789
+
+
+Decoded Message Sample (first 10000 chars):
+u%pgf,ash ?%Thaa$al)-g(ksªheHqR(Dftecy!Aezvel!!Op$ AdLp: (7(?$6589?siP%rz)ph"? D
+e(m:*cnp{raghuDd -p(Ia5Rùhm Ks) @rLdw!c3(7<278%¬5%p!nmdyk --Phls!²`i-$(i3 az:ch%
+a`t{d `y$O@rhfl!HKt! aoLe:&770 +6?89?Watefterk b?zHj> lzhge `wªcgzyzae@pTf -}/Ic
+rtal? Lx. +o``:$97¦?{Gw29
+Qa0er~d~k / Tjgz(am!vm,kóógOPxrjghug,$+y-Mis~ÅB+$/)/ fcdew =63456589?§e~cvMc2l",
+ ThHq¦@l ke is -RIu??-Oq{e b{$Lar{el! ^r0!Jofe6 02304?4?íèQeKs¶a}" ? ?ó ??
++eNe!iR(lcpy^(ni`ca oJ,Oº2-`ì> Mt¬óBäb<0,!K2? ???*eg}efmjtk $ uh+s!ylacm$$|!x^Vy
+4uvi8)#G¤6?N¦+q«m@?/ í¶nm2 '63§?232[:UFuDzgC2n J Ud,?ë+iHb '
+ b~ Ldzv¦??mOpJ8Q/nA:"1>7¦=6w~>+Es~ ¼?@ ¦??N(å#jAame!is!bo6xH-aD}ßl,jU ¦aR{'j/$K
+úB?ƒucj? â$jueseark )(eki< Tmt¦d y6 bory;?`mt<`" ó? $w,+l?!@    '$Cfeb: 5$24< u¦
+7
+_a70rlLup ,éPFicáSThg '!"h-d8ybG??.d bq MerrjL!%CX?"cg8º? 9;5$+:3¬{?V¬nA¼?( t?zM
+6_?jcj  âFa4Hædi£+&-í\Fi{!Ofd/góe¦$pnq[r        +T|eh"f?l ?¦+LmH?iZ"ú+odE: p#3¦$
+670Witls`+"/á8hKr hlApg?-u(cnzyvAfjqeb Fy$M     ;ûE(! Ob'!deg:ó12;?æ61<2?? derya
+pk$-"T8sv omagi"-F2fp¦q+@d`:GdCGy#Ner}lzp!Mr* +odf> 0;;4+674?c<%z%cr/ 1 T`i3,G
+msU&Tu(qotYsTclte) c{ MEsvd`i¦^¦3`Code?è11>6>lt:;?WinwqFaRI(- ?haubiTfg¦,hs Cn?¦
+pipF|el!cI$Lis}f+!'K=nÑCiD.."+%2L365X8?]#u}=i!rd § EHish(m`-cTds"i(rxFa'ivnm,aDe
+EA7bmn?p¼,Ifgd:¿34+=§&3?;?[`}a~/`2·ü$(\havb_eh_&2mp#`mPyvF˜ht§d a{!MArVgd$)Ap.dC
+z#e<,36'>05}49a>aux~NE2c!= UT+c0,-acÑ"daßsfpyGcmhtgd jt!EEz4%+%%Hwjdo`e:í3¦301>5
+8¦

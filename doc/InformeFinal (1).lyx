@@ -1,0 +1,2258 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+HRule}{
+\backslash
+rule{
+\backslash
+linewidth}{0.5mm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+center
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+LARGE Instituto Tecnológico de Buenos Aires}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+Large 22.05 Análisis de Señales y Sistemas Digitales}
+\backslash
+
+\backslash
+[0.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+large Trabajo Práctico 4}
+\backslash
+
+\backslash
+[0.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+HRule 
+\backslash
+
+\backslash
+[0.4cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\backslash
+huge 
+\backslash
+bfseries Steganografía sobre Imágen}
+\backslash
+
+\backslash
+[0.4cm] % Title of your document
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+HRule 
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{minipage}{0.4
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{flushleft} 
+\backslash
+large
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{Alumnos:}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Nahuel 
+\backslash
+textsc{Aguilar} 54607
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+J.
+ Agustín 
+\backslash
+textsc{Barrachina} 53790
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Gonzalo 
+\backslash
+textsc{Castelli} 55055
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Augusto 
+\backslash
+textsc{Viotti Bozzini} 55138
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{flushleft}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{minipage}{0.4
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{flushright} 
+\backslash
+large
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{Profesores:} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Daniel 
+\backslash
+textsc{Jacoby}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Carlos 
+\backslash
+textsc{Selmo}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Juan Ignacio 
+\backslash
+textsc{Carrano}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Andres 
+\backslash
+textsc{Bersier}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Julian Andrés 
+\backslash
+textsc{Tachella}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{flushright}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{minipage}
+\backslash
+
+\backslash
+[4cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+% If you don't want a supervisor, uncomment the two lines below and remove
+ the section above %
+\backslash
+Large 
+\backslash
+emph{Author:}
+\backslash
+
+\backslash
+ %John 
+\backslash
+textsc{Smith}
+\backslash
+
+\backslash
+[3cm] % Your name
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+large 
+\backslash
+today}
+\backslash
+
+\backslash
+[3cm] % Date, change the 
+\backslash
+today to a set date if you want to be precise
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill % Fill the rest of the page with whitespace
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Introducción Teórica y Objetivos
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+Steganografía es el acto de ocultar un documento, mensaje, imagen o algún
+ otro archivo dentro de otro archivo.
+\end_layout
+
+\begin_layout Standard
+Su orígen viene del latín que combina la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+steganos
+\begin_inset Quotes erd
+\end_inset
+
+ que significa oculto o secreto con la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+graphein
+\begin_inset Quotes erd
+\end_inset
+
+ que significa escritura.
+ Dicha palabrea fue empleada por primera vez en 1499 por Johannes Tritheminus
+ en su 
+\begin_inset Quotes eld
+\end_inset
+
+Steganographia, a treatise on cryptography and steganography
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sus métodos y formas desde entonces son innumerables, y se extieneden incluso
+ fuera del dominio digital.
+ En este trabajo particularmente se tratará particularmente sobre steganografía
+ sobre Imágenes únicamente.
+ Pero antes de proseguir con éste tema es importante destacar claramente
+ las diferencias de dos términos generalmente confundidos: Steganografía
+ y Criptografía.
+ Así también como la diferencia que poseen con lo denominado WaterMarking.
+\end_layout
+
+\begin_layout Standard
+Si bien es cierto que tanto el objetivo de la steganografía como de la criptogra
+fía es ocultar mensajes, su diferencia radica en la forma en que lo hacen.
+ La criptografía se encarga de impedir que un tercero acceda a la información
+ protegida por medios de algoritmos de seguridad que impiden a esta persona
+ abrir el archivo o acceder al mismo, es decir, que ésta persona sabe de
+ la existencia del archivo pero falla en acceder al mismo debido a la protección
+ impuesta.
+ Ésto posee el defecto de atraer demaciada atención sobre el archivo protegido,
+ si despierta el interés en el tercero, el mismo puede terminar quebrando
+ el código y descubriendo el mensaje oculto.
+ Incluso, en algunos países, el uso de criptografía puede ser ilegal.
+ Por otra parte, la steganografía se encarga de ocultar el hecho de que
+ el documento a proteger exista.
+ Su objetivo es disfrazar el mismo dentro de otro archivo que parezca innocente
+ de forma que cuando un tercero vea ese archivo no sepa que hay un mensaje
+ oculto dentro.
+ Muchas veces, para mayor seguridad suelen combinarse ambos métodos de forma
+ que si por algún motivo quien lea el mensaje logra descubrir que existe
+ el mensaje oculto, no pueda desencriptarlo.
+\end_layout
+
+\begin_layout Standard
+Si bien la línea que diferencia el watermarking con la steganografía puede
+ ser muy delgada bajo ciertos aspectos.
+ Principalmente varían en el objetivo que emplean, el objetivo del watermarking
+ es generalmente una firma de autor que ayuda a combatir la piratería y
+ proporciona seguridad contra el copyright.
+ A veces de hecho, ésta marca de agua es claramente visible lo cual contradice
+ la idea básica de la steganografía.
+\end_layout
+
+\begin_layout Section
+Steganografía en Imágenes
+\end_layout
+
+\begin_layout Standard
+Como ya se mencionó anteriormente, este trabajo se centrará en steganografía
+ en imágenes.
+ La mísma se puede dividir en dos clasificaciones según su domínio (según
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+).
+ Está las que se basan en el dominio de las frecuencias (Transform Domain)
+ y las que se basan en el simple dominio de la imagen (Spatial Domain).
+ Éste último aplica inserción de bits y manipulación del ruido a la imagen
+ portadora.
+ Por el otro lado, las que trabajan con las frecuencias utilizan la transformada
+ de fourier para esconder la información en su espectro de la frecuencia.
+ Dentro de esta clasificación se encuentran innumerables métodos.
+ Entre los más conocidos se encuentran los siguientes (La imágen se basó
+ en el trabajo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Diagrama.jpg
+	width 14cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distintos Métodos de Steganografía
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dominio de la Imagen (Spatial Domain Technique)
+\end_layout
+
+\begin_layout Subsubsection
+Least Significant Bit
+\end_layout
+
+\begin_layout Standard
+El método del LSB por sus cifras en inglés es quizás el más conocido y sencillo
+ de tódos.
+ Pero aún así muy efectivo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+ El método consiste en cambiar cada byte que repserenta un color de un píxel
+ en la imágen (RGB) de una forma muy sutíl para incorporar el archivo a
+ esconder.
+ Se basa en la idea que el ojo humano no es capáz de detectar, por ejemplo
+ el cambio de un solo píxel de una intensidad de 255 a 254.
+ Además, en promedio solo la mitad de los bits deberían cambiarse lo cual
+ reduce aún más el cambio que se efectúa en la imágen portadora.
+\end_layout
+
+\begin_layout Standard
+Se podría proteger éste método con una llave secreta que indique cuales
+ de todos los bytes fueron modificados, siendo que solo se hubieran cambiado
+ algunos de ellos de forma aleatoria y no todos por completo.
+\end_layout
+
+\begin_layout Standard
+El método es muy sensible a la compresión, por eso se necesita formatos
+ de archivos que no comptiman la imágen, motivo por el cual se suele implementar
+ éste método en archivos de formato Bit Map (BMP)
+\end_layout
+
+\begin_layout Subsection
+Dominio de las Frecuencias (Transform Domain Technique)
+\end_layout
+
+\begin_layout Standard
+Antes de ahondar sobre éste método es necesario conocer el funcionamiento
+ básico de los archivos JPEG.
+ El JPEG es muy importante ya que es el formato de imágen más utilizado
+ sobre todo en internet por su gran capacidad de compresión.
+ Por su popularidad será el formato de archivo en el cual se basará el trabajo
+ principalmente.
+\end_layout
+
+\begin_layout Standard
+El JPEG pasa del sistema RGB al YUV.
+ La componente Y representa la luminocidad mientras que U y V representan
+ la crominancia.
+ El ojo humano es más sensible al cambio en la luminancia de un pixel que
+ cambios en el color.
+ Éste hecho es explotado por la compresión JPEG bajando los datos del color
+ para reducir el peso de la imágen.
+ 
+\end_layout
+
+\begin_layout Standard
+El próximo paso consta de transformar la imagen al dominio de las frecuencias
+ utilizando Discrete Cosine Transform (DCT).
+ Se suele agrupar los péxeles en grupos de 8x8 y transforma cada bloque
+ en 64 coeficientes de la DCT de forma que modificando un solo coeficiente
+ afectará a todos los píxeles del bloque.
+\end_layout
+
+\begin_layout Standard
+Luego se aplica otro dato más sobre el ojo humano.
+ El mismo no es bueno viendo grandes cambios de luminocidad en poca área,
+ es decir, es una especie de pasa bajos cuando se trata de brillo.
+ Por lo que entonces se divide los coeficientes por unos valores que reducen
+ enormemente las altas frecuencias sin afectar la apariencia de la imágen.
+ Estos valores por los cuales se dividen los coeficientes se guardan en
+ una tabla que luego se lee al descomprimir para mostrar la imágen.
+ Los coeficientes son luego tratados con el código de Huffman para mayor
+ reducción del tamaño.
+\end_layout
+
+\begin_layout Standard
+El mayor defecto de los tipos de archivo JPEG ocurre en texto, ya que el
+ mismo suele presentar principalmente altas frecuencias.
+\end_layout
+
+\begin_layout Subsubsection
+JPEG Steganografía
+\end_layout
+
+\begin_layout Standard
+Originalmente se creía que no iba a ser posible realizar steganografía en
+ archivos de formato JPEG por su característica 
+\begin_inset Quotes eld
+\end_inset
+
+lossy
+\begin_inset Quotes erd
+\end_inset
+
+ (pérdida de información).
+ Sin embargo, es la etapa de la transformación mediante la DCT y redondeo
+ a enteros de los coeficientes tras dividirlos lo que le da al JPEG ésta
+ característica.
+ Es posible agregar información luego de ésta etápa y antes de la codificación
+ por Huffman para realizar la steganografía sobre archivos JPEG.
+\end_layout
+
+\begin_layout Section
+Características Importantes
+\end_layout
+
+\begin_layout Standard
+Según describe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+, un buen algoritmo de steganografía debe poseer las siguientes características:
+\end_layout
+
+\begin_layout Enumerate
+Invisibilidad: Debe ser indetectable por el ojo humano.
+ El mísmo no puede ser capáz de detectar que algo en la imágen no está bien.
+\end_layout
+
+\begin_layout Enumerate
+Capacidad de Almacenamiento: Cantidad de información que puede esconder
+ bajo cierto tamaño de la imagen portadora.
+\end_layout
+
+\begin_layout Enumerate
+Resistencia contra el Stegoanalisis: El stegonálisis es la práctica de detectar
+ si cierta imágen posee o no un archivo oculto en la misma.
+ Sobre éste tema se abordará a en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Stegoanálisis"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Robustez contra la manipulación: Consta de que tan robusto es el algoritmo
+ contra manipulaciones como girar una imágen o recortes.
+\end_layout
+
+\begin_layout Enumerate
+Independencia del tipo de formato: Si solo se utiliza un tipo de archivo,
+ puede resultar sospechoso para un tercero que siempre utilicen el mismo
+ formato.
+\end_layout
+
+\begin_layout Enumerate
+Archivos sospechosos: Incluye cualquier característica que pueda resultar
+ sospechosa como por ejemplo un tamaño excesivamente grande para una imágen.
+\end_layout
+
+\begin_layout Standard
+A continuación se presenta un cuadro que se obtiene de 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+ que compara diversos métodos de Steganografía:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename CuadroComparativo.bmp
+	width 13cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla comparativa entre Distintos métodos de Steganografía
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Stegoanálisis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Stegoanálisis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El stegonálisis es el arte de detectar la existencia de archivos ocultos
+ dentro de imágenes.
+ Como el formato de interés para este trabajo es el JPEG se investigó principalm
+ente sobre éste formato.
+\end_layout
+
+\begin_layout Standard
+Un nuevo método de stegoanálisis basado en una representación escasa es
+ tratado en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+.
+ En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-6"
+
+\end_inset
+
+, Qingzhong Liu propuso un esquema para el stegonálisis de imágenes JPEG
+ que mejoró la detección de sistemas basados en JPHS, CryptoBola, F5, Steghide,
+ etc.
+ En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-7"
+
+\end_inset
+
+, N.
+ V.
+ S.
+ Sree Rathna Lakshimi propuso un algoritmo ganador del novel que permitía
+ detectar la diferencia entre un archivo normal de otro modificado.
+ En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+ presentó un método para diferenciar una imagen stego de su imagen portadora
+ basada en la descomposición por bloques de la imágen.
+ Manu Devi & Nidhi Sharma presentaron en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-9"
+
+\end_inset
+
+ cuatro diferentes técnicas para el stegoanálisis.
+ Finalmente, en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-10"
+
+\end_inset
+
+, Han Zong propuso un método basado en la correlación para la detección
+ de un posible archivo oculto mediante la steganografía.
+\end_layout
+
+\begin_layout Standard
+Una extensa comparación entre éstos métodos explicados fue realizada en
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Software Comercial
+\end_layout
+
+\begin_layout Standard
+Existen diversos softwares encargados tanto de realizar stegonálisis como
+ steganografía 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-11"
+
+\end_inset
+
+.
+ Entre ellas se encuentran:
+\end_layout
+
+\begin_layout Itemize
+Anubis
+\end_layout
+
+\begin_layout Itemize
+OpenStego
+\end_layout
+
+\begin_layout Itemize
+Invisible Secret Tool
+\end_layout
+
+\begin_layout Itemize
+Camouflage
+\end_layout
+
+\begin_layout Itemize
+StegSecret
+\end_layout
+
+\begin_layout Standard
+Particularmente, StegSecret es una herramienta de stegoanálisis que puede
+ servir para testear el código implementado.
+\end_layout
+
+\begin_layout Part
+Software Implementado y Mediciones
+\end_layout
+
+\begin_layout Section
+Implementación
+\end_layout
+
+\begin_layout Subsection
+Lenguaje y Librerías
+\end_layout
+
+\begin_layout Standard
+Se decidió implementar el programa en C++ por diversas razones.
+ En primer lugar, los algoritmos a implementar requieren de múltiples operacione
+s a nivel de bits, por lo que los operadores binarios nativos de este lenguaje
+ presentan una gran ventaja en la simpleza y velocidad del código para dichas
+ operaciones.
+ La necesidad de obtener un programa rápido y fluido por la gran cantidad
+ de operaciones que serán necesarias, hace de los lenguajes de bajo nivel
+ como C++ una buena elección frente a lenguajes de alto nivel como Python
+ y Matlab.
+ Finalmente, C++ es un lenguaje con permanentes actualizaciones, y con abundante
+ bibliografía y documentación online.
+ Además ya fue ampliamente utilizado por los autores de este trabajo, permitiend
+o trabajar en una zona de confort.
+\end_layout
+
+\begin_layout Standard
+En cuanto al manejo de imágenes, se optó por utilizar la librería CImg.
+ Esta es una pequeña librería de código abierto con múltiples y deseables
+ propiedades.
+ Permite trabajar con múltiples formatos de imágen, es portable entre diversos
+ sistemas operativos, es simple de usar, es ligera en cuestiones de espacio
+ de almacenamiento, y permite utilizar funcionalidades de librerías externas,
+ como ImageMagick para la compresion y decompresión JPEG.
+\end_layout
+
+\begin_layout Subsection
+Librería Implementada
+\end_layout
+
+\begin_layout Standard
+Se realizaron una serie de funciones para la codificación y decodificación
+ de distintos tipos de estenografía.
+ También se implementaron funciones para medir el error entre las imágenes
+ antes y después de procesos de estenografía y compresión-descompresión
+ JPG, y el error en la información recuperada a partir de la decodificación
+ de la esteganografía.
+\end_layout
+
+\begin_layout Subsection
+LSB Steganography
+\end_layout
+
+\begin_layout Standard
+Se implementó una steganografía de LSB simple, el mismo será reutilizado
+ también más adelante para algoritmos JPEG y éso se aprovecha para profundizar
+ en éste método que si bien es sencillo es de los más utilizados para la
+ esteganografía.
+ 
+\end_layout
+
+\begin_layout Standard
+Una de las principales ventajas de éste método es la cantidad de información
+ que puede esconderse sobre una imágen.
+ Se logró incluir una imágenes dentro de imágenes para mostrar la efectividad
+ del algoritmo.
+ La siguiente imagen muestra como dentro de una imagen de 126 MB se incluyó
+ una imágen de 23.7 MB la cual contenía a su vez una imagen HD estándar de
+ 1920x1080, y así sucesivamente hasta concluir con un archivo de texto.
+ Las mísmas se pueden ver en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esteganografía-con-LSB"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Inception.png
+	display false
+	width 15cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esteganografía anidada con 2LSB para imágenes y texto
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esteganografía-con-LSB"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La realización utilizando un solo LSB resulta imperceptible al ojo humano
+ incluso comparando con la imagen original.
+ Con dos LSB, ya puede ser posible notar alguna diferencia en las muy bajas
+ frecuencias, como planos de color continuos.
+ En la siguiente figura se puede ver como en bajas frecuencias, la zona
+ superior de la imagen, se puede ver un ligero cambio en el color del negro.
+ Por otro lado, en altas frecuencias (zona inferior) no se puede apreciar
+ cambio alguno.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Comparación LSB.png
+	display false
+	width 10cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esteganografía LSB de 2-bit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+JPEG Steganography
+\end_layout
+
+\begin_layout Standard
+Para la explicación sobre el algoritmo se suponen conocimientos básicos
+ de la teoría detras de la compresión JPEG, si bien algunos aspectos que
+ se consideren importantes se resaltarán.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Agregar referencias estaría bueno
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para pasar de BMP o PNG a JPEG se debe utilizar una transformación de RGB
+ (Red Blue Green) a 
+\begin_inset Formula $YC_{b}C_{r}$
+\end_inset
+
+ donde 'Y' corresponde a la coordenada de luma y 'C' corresponde al cromo
+ (diferencia) de azul y rojo respectivamente.
+ Esta simple conversión, en teoría, sin pérdidas, genera error por cuantización
+ ya que se debe redondear a valores enteros entre 1 y 255.
+ Por lo que se debe tener en cuenta que aunque se utilice una compresión
+ sin pérdidas se va a obtener algún mínimo error por el simple hecho de
+ pasar de un sistema de coordenadas RGB a 
+\begin_inset Formula $YC_{b}C_{r}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+JPEG realiza la conversión DCT (Discret Cosine Transform) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Algún algo que explique como hacerla o qué es la DCT
+\end_layout
+
+\end_inset
+
+ sobre un cuadrado de 8 x 8 bytes.
+ Aquí se aprovecha el hecho de que el ojo humano distingue menos las altas
+ frecuencias de las bajas frecuencias y se divide los valores de la DCT
+ por unos coeficientes establecidos en tablas según el grado de compresión.
+ Se obtuvieron numerosas tablas para los distintos factores de compresión
+ utilizando JPEGsnoop (ver 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:JPEGsnoop-Matrices-de-cuantizacion"
+
+\end_inset
+
+).
+ El mismo es un programa que te muestra información sobre archivos JPEG.
+ Se obtuvieron tablas, denominadas matrices de cuantización, para los porcentaje
+s de compresión de 50, 60, 70, 75, 80, 95 y 100 %.
+\end_layout
+
+\begin_layout Standard
+La esteganografía se realiza luego sobre los 8 primeros bytes de menores
+ frecuencias ya que son las que poseen coeficientes menores y las que menos
+ información pierden.
+ Además, si la imágen es recortada, resulta más sencillo recuperar el mensaje
+ si se utilizan estos 8 bytes, iterando el algoritmo de decodificación,
+ comenzando desde cada pixel del cuadrado inicial de 8x8 hasta encontrar
+ el mensaje.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Explicar más adelante si hay tiempo
+\end_layout
+
+\end_inset
+
+.
+ El algoritmo consiste ahora en aplicar el anterior método de LSB de 1 bit
+ sobre estos bytes.
+ No se aplica LSB sobre las componentes de altas frecuencias ya que los
+ coeficientes son muy grandes y generan un gran error de cuantización al
+ redondear.
+ Además, hacer eso haría al algoritmo muy sensible al esteganálisis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename DCTMatrix.bmp
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo de matríz resultante después de la DCT.
+ Remarcados, los valores de la DCT sobre los cuales se aplica LSB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede realizar una resta de los valores de la imagen original con la
+ imágen luego de utilizar el algoritmo de steganografía por JPEG.
+ A estos errores se los puede amplificar para poder tratar de notar la diferenci
+a entre ellos.
+ Una imágen de muestra se puede ver en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-aumentado"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 80_Original.jpg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 80_Steg.jpg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 80_Difference_x5.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Imagen original, con esteganografía, y diferencia entre imágenes amplificada
+ x5
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-aumentado"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En dicha figura se puede observar facilmente como el mayor error se encuentra
+ en las altas frecuencias.
+ Se puede ver claramente la figura del personaje y los contornos de los
+ objetos pero en las partes de bajas frecuencias como el cielo en el fondo
+ el error es mucho menos apreciable.
+\end_layout
+
+\begin_layout Subsection
+Análisis de resultados
+\end_layout
+
+\begin_layout Standard
+Luego de realizar el algoritmo se probó recomprimiendo la misma imágen numerosas
+ veces para verificar cual era el error al comprimir cierto numero de veces
+ la imágen.
+ Si se utiliza una tabla de compresión de 80%, la misma no es resistente
+ a compresiones de 75% o menores ya que al utilizar una matríz de compresión
+ con mayores coeficientes de cuantización, los LSB se pierden por redondeo
+ y no se logra recuperar bien el mensaje por más repetición que se utilice.
+ Es decir, el algoritmo solo resiste compresiones de porcentajes de compresión
+ mayores o iguales al grado ustilizado.
+ 
+\end_layout
+
+\begin_layout Standard
+Se alcanza un valor de compromiso entre la resistencia a la compresión y
+ la calidad de imagen obtenida.
+\end_layout
+
+\begin_layout Standard
+Para el calculo del error se utilizó la diferencia de Hamming.
+ La misma indica que el número máximo de bits que se pueden tener erroneos
+ está dado por la mitad menos uno de la cantidad de reiteraciones que se
+ coloca en el archivo o imagen de carrier.
+ La probabilidad que se produzcan t errores sobre una cantidad de n bits
+ está dado por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p_{error}=\frac{n!}{t!(n-t)!}\cdot p^{t}\cdot\left(1-p\right)^{n-t}\label{eq:perror}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La probabilidad p se obtiene promediando los errores que se obtuvieron conociend
+o por supuesto el bit orignal.
+\end_layout
+
+\begin_layout Standard
+Para calcular la probabilidad de error total se debe realizar la sumatoria
+ de todos los t para el cual se obtiene un numero errado.
+ Sin embargo, los mismos se pueden despreciar y aproximar el error como
+ el error para 
+\begin_inset Formula $t=n/2$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La probabilidad equivalente de error (probabilidad que el mensaje se transmita
+ sin error) entonces se calcula como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p_{equ}=1-\left(1-p_{error}\right)^{1/k}\label{eq:pequivalente}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde k es la cantidad de bits que posee el mensaje.
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra una imágen de los resultados del programa.
+ En la simulación se utilizó una compresión del 90% y se realizaron 30 compresio
+nes de 90%.
+ Se puede ver como la primera probabilidad de error es muy baja y solo se
+ debe al error de cuantización entre RGB y 
+\begin_inset Formula $YC_{b}C_{r}$
+\end_inset
+
+.
+ A partir de la primer compresión aumenta notablemente.
+ Si todas las compresiones se van realizando con la misma matriz de cuantización
+, se puede observar como el error tiende a un valor estacionario por ser
+ un proceso de Markov.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 30_Iteraciones.png
+	display false
+	width 11cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulacion con porcentaje de compresión del 90%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+JPEG aprovecha el hecho de que el ojo humano es más sensible a los cambios
+ de lumus (Y) que a los cambios en la cromática.
+ Éste hecho se puede observar claramente en las matrices de conversiones
+ de la JPEG que se muestran en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:JPEGsnoop-Matrices-de-cuantizacion"
+
+\end_inset
+
+.
+ Como se puede observar, los coeficientes de cromática son generalmente
+ mucho mayores a los coeficientes de lumus, ésto genera que para compresiones
+ de bajo porcentaje de compresión, por ejemplo de 50%, los bits en las tablas
+ cromáticas sean prácticamente eliminadas, aumentando el error notablemente.
+\end_layout
+
+\begin_layout Standard
+Suponiendo que existe en el mensaje la mísma probabilidad de error de tener
+ un 1 o un 0, las tablas tan estrictas de estos valores tienden generar
+ un resultado 0 para todos sus bits.
+ ya que responde a la ecuación:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cómo es esto bien??? Revisar...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{error}=\frac{p_{errorY}+p_{errorCb}+p_{errorCr}}{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Despreciando el error en la coordenada lumus, las probabilidades de error
+ de los cromos se asume de 50%, por lo que el error termina siendo de un
+ 33%, lo cual puede verificarse en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Probabilidad-de-error"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 33_Error.png
+	width 10cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Probabilidad de error con gran porcentaje de compresión
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Probabilidad-de-error"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sin embargo, no pueden utilizarse las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:perror"
+
+\end_inset
+
+ ni 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pequivalente"
+
+\end_inset
+
+ ya que ya no puede suponerse que el error afecta indistintamente a un 1
+ o un 0.
+ Al cero practicamente no lo afecta mientras que al 1 lo tiende a cero.
+ Esto aumenta significantemente el error y genera problemas el recuperar
+ el mensaje la imagen bajo ciertas condiciones de compresión.
+ Si en estos casos se despreciase la información en las componentes Cb y
+ Cr, que es prácticamente 0 en todos sus valores, y solo se buscase el mensaje
+ en la componente Y, este será recuperado exitosamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JPEGsnoop.png
+	display false
+	width 14cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+JPEGsnoop Matrices de Cuantización
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:JPEGsnoop-Matrices-de-cuantizacion"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparación de los Métodos
+\end_layout
+
+\begin_layout Standard
+Cada método posee diferentes ventajas respecto al otro.
+ Como se pudo observar en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esteganografía-con-LSB"
+
+\end_inset
+
+, LSB posee gran cantidad de información.
+ Es facil deducir que para LSB de 1 bit, puede incluir un archivo de un
+ tamaño de 1/8 del tamaño de la imagen original, y 1/4 para LSB de 2-bit.
+ En cambio, el método de la DCT puede incluir información de 1/64 en el
+ mejor de los casos, lo cual es muchísimo menos que LSB.
+ Sin embargo, la esteganografía por LSB posee una resistencia a la compresión
+ nula ya que el LSB es lo primero que se suele alterar tras una compresión.
+\end_layout
+
+\begin_layout Standard
+Como pudo observarse claramente, DCT, por el contrario, posee gran inmunidad
+ a la compresión y permite realizar muchas iteraciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Se podría comprar usando la tabla que puse de las características importantes
+ de un algoritmo cosa de tener en cuenta eso y tirar facha
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Detalles finales
+\end_layout
+
+\begin_layout Standard
+Para la esteganografía de imágenes dentro de imágenes se utilizó un Header
+ en el cual se guardan las dimensiónes de altura, ancho profundidad, espectro
+ y presición de bits (0-7) utilizada en la imagen mensaje, para que luego
+ esta pueda ser regenerada apropiadamente.
+\end_layout
+
+\begin_layout Standard
+Dado a los grandes números con los que se opera, para el cálculo del error
+ no es posible utilizar los tipos de datos estandar de C++ debido a que
+ estos ofrecen una presición limitada.
+ Al calcular números grandes, como 300!, los valores superan ampliamente
+ el máximo valor alcanzable para cualquier tipo de dato nativo.
+ Por lo tanto se debe utilizar una librería con tipos de datos de presición
+ arbitraria para poder calcular los errores adecuadamente.
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+Se realizó esteganografia de texto y de imágenes sobre imágenes utilizando
+ LSB y DCT.
+ En el caso de la DCT se consiguió medir el error por efectos de cuantización
+ y por efectos de compresión y decompresión a JPEG para múltiples calidades.
+ Se estudiaron diversos fenómenos en la decodificación del mensaje por errores
+ de cuantización.
+ Se analizó la tendencia del error ante múltiples compresiones.
+ Se estudió la diferencia absoluta entre la imagen inicial y con esteganografía.
+ Se diseñó el algoritmo para que en el futurso puedan implementarse funciones
+ que facilmente recuperen el mensaje de imágenes rotadas en múltiplos de
+ 90 grados, espejadas, y recortadas.
+ La esteganografía en DCT demostró su fuerte resistencia ante compresiones
+ de igual o preferentemente mayor calidad a la utilizada para escribir el
+ mensaje.
+ Se concluye que para la conservación del mensaje es preferible utilizar
+ calidades bajas para su escritura, y calidades altas para su compresión.
+ Así, una o múltiples compresiones de muy baja calidad tendrá más posibilidades
+ de destruir el mensaje, pero a costo de reducir significantemente la calidad
+ de la imagen original.
+ Se seguirán estudiando estos fenómenos para ampliar este trabajo en el
+ futuro.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Hablar de pérdida de info en el paso de YCbCr a RGB y viseversa por errores
+ de redondeo al cuantizar a [0,255]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Hablar de las imágenes anidadas con 2_LSB steganography para mencionar
+ la alta capacidad de guardar info en LSB.
+ Mencionar como contra que es muy vulnerable a lossy compressions.
+\end_layout
+
+\begin_layout Plain Layout
+X.
+ Hablar del Header implementado para guardar imágenes dentro de imágenes,
+ donde figuran el alto, ancho, profundidad, espectro, y precision en bits
+ (0-7) por pixel utilizada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Se utilizó el programa JPEGsnoop para, dados varios porcentajes de calidad
+ de compresión [50,60,70,75,80,85,90,95,100] obtener las matrices de cuantizació
+n Y y Cb/Cr.
+ (Cb y Cr utilizan la misma matriz).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Comparar LSB y DCT, mostrar que el mensaje en LSB no sobrevive en absoluto
+ a la compresión JPEG.
+ Mencionar que LSB permite guardar más información sin generar cambios apreciabl
+es en la imagen.
+ Cambiando únicamente el último LSB, los cambios son imperceptibles incluso
+ comparando a simple vista con la imagen original.
+ En caso de usar los 2 últimos LSB, el cambio es perceptible en planos de
+ color continuos (casi sin componentes de frecuencias), como por ejemplo
+ una sección totalmente negra, más que nada si se compara con la imagen
+ original.
+ 1 LSB permite guardar info en 1/8 del tamaño de la (cambia 1 de cada 8
+ bits), 2 LSB permite guardar info en 1/4 del tamaño de la imagen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Mostrar que para N recompresiones JPEG para N aproximadamente mayor o igual
+ a 30, el error medio por bit tiende a estabilizarse en un valor constante.
+ Esto se debe a que los valores de los coeficientes de la DCT y de las component
+es de YCbCr tienden a un estado estacionario donde ya no existen variaciones
+ por errores de redondeo en la conversión YCbCr a DCT ni en la RGB a YCbCr.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Mostrar la resta amplificada de las imágenes inicial y final en JPEG, y
+ mencionar que se ve que la mayor concentración de errores en los pixels
+ se encuentra en los sectores con altas componentes de alta frecuencia,
+ es decir, donde la imagen tiene mayor nivel de detalles.
+ Esto se debe a la naturaleza del algoritmo de JPEG de descartar estas altas
+ frecuencias ya que aportan menos información que las frecuencias medias
+ y bajas a la calidad de la imagen respecto de la evaluación humana.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Calcular la expresión del error para código de repetición (Palombo de Transinfo
+).
+ Explicar que para calidades muy bajas, (50, 60), el mensaje es visible
+ en la componente Y de la imagen, pero es totalmente destruido en las componente
+s Cb y Cr pasando casi todos los bits a ser Cero.
+ Esto genera que el error promedio de los bits sea para valores aproximados
+ (0 + 0.5 + 0.5) / 3 = 0.33.
+ Para este valor, la probabilidad teórica de recuperar el mensaje sin errores
+ es muy alta 0.9999, pero el mensaje no es recuperado.
+ Esto se debe a que la probabilidad de un error P(1/0) es casi nula y P(0/1)
+ es casi 1 para los dos últimos tercios de la cadena larga.
+ Por esta probabilidad condicional, el cálculo de repetición no es válido.
+ El promedio de strings, es decir, la string recuperada, será entonces casi
+ todo 0.
+ Si se leyese tan solo la información en la componente Y, el mensaje se
+ recupera con muy altas probabilidades de exito sin ningún error.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+X.
+ Explicar que se guarda la info en los LSB de los 8 bytes de la DCT más
+ cercanos a DC, sin incluir DC, dado a que es alli donde yacen los menores
+ valores de cuantización y son los que menos error absoluto transladan a
+ los pixels de la imagen final.
+ Guardar info en las altas frecuencias generaría más error y sería muy obvio
+ frente a steganalisis.
+\end_layout
+
+\begin_layout Plain Layout
+X.
+ Explicar que el cálculo del error requiere numeros de altísima presición
+ (Ej 200!) y no puede ser calculado por los tipos de dato standard de c++.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "key-1"
+
+\end_inset
+
+R.
+ Poornima & R.
+ J.
+ Iswarya (2013) 
+\begin_inset Quotes eld
+\end_inset
+
+An Overview of Digital Image Steganography
+\begin_inset Quotes erd
+\end_inset
+
+ International Journal of Computer Science & Engineering Survey (IJCSES)
+ Vol.
+ 4, No.
+ 1, Februrary 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "2"
+key "key-2"
+
+\end_inset
+
+T.
+ Morkel, J.
+ H.
+ P.
+ Eloff & M.
+ S.
+ Olivier 
+\begin_inset Quotes eld
+\end_inset
+
+An Overview of Image Steganography
+\begin_inset Quotes erd
+\end_inset
+
+ Information and Computer Security Architecture (ICSA) Department of Computer
+ Science.
+ University of Pretoria, Pretoria, South Africa.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "3"
+key "key-3"
+
+\end_inset
+
+Johnson, N.
+ F.
+ & Jajodia, S.
+ (1998) 
+\begin_inset Quotes eld
+\end_inset
+
+Exploring Steganography: Seeing the Unseen
+\begin_inset Quotes erd
+\end_inset
+
+ Computer Journal, Februrary 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "4"
+key "key-4"
+
+\end_inset
+
+Sherif M.
+ Badr, Gouda I.
+ Salama, Gamal M.
+ I.
+ Selim & Ashgan H.
+ Khalil (2014) 
+\begin_inset Quotes eld
+\end_inset
+
+A Review of Steganalysis Techinques: From Image Format Point Of View
+\begin_inset Quotes erd
+\end_inset
+
+.
+ International Journal of Computer Applications.
+ Vol.
+ 102 - No.
+ 4, September 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "5"
+key "key-5"
+
+\end_inset
+
+Zhuang Zhang, Donghui Hu, Yang Yang & Bing Su (2013) 
+\begin_inset Quotes eld
+\end_inset
+
+A Universal Digital Image Steganalysis Method Based on Sparse Representation
+\begin_inset Quotes erd
+\end_inset
+
+ Ninth International Conference on Computational Intelligence and Security.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "6"
+key "key-6"
+
+\end_inset
+
+Qingzhong Liu, Andrew H.
+ Sung, Mengyu Qiao, Zhongxue Chen & Bernadete Ribeiro (2010) 
+\begin_inset Quotes eld
+\end_inset
+
+An improved approach to steganalysis of JPEG Images
+\begin_inset Quotes erd
+\end_inset
+
+ Information Sciences 180, 1643-1655, EL SEVIER.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "7"
+key "key-7"
+
+\end_inset
+
+N.
+ V.
+ S.
+ Sree Rathna Lakshimi, (2014) 
+\begin_inset Quotes eld
+\end_inset
+
+A Novel Steganalytic Algorithm based on III Level DWT with Energy as Feature
+\begin_inset Quotes erd
+\end_inset
+
+ Research Journal of Applied Sciences, Engineering and Techonology, Maxwell
+ Scientific Organization.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "8"
+key "key-8"
+
+\end_inset
+
+Seongho Cho, Byung-Ho Cha, Martin Gawecki & C-C Jay Kuo (2013) 
+\begin_inset Quotes eld
+\end_inset
+
+Block-Based image steganalysis: Algorithm and performance evaluation
+\begin_inset Quotes erd
+\end_inset
+
+ J.
+ Vis.
+ Commun.
+ Image R., EL SEVIER.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "9"
+key "key-9"
+
+\end_inset
+
+Mansour Sheikhan, M.
+ Shahram Moin & Mansoureh Pezhmanpour (2010) 
+\begin_inset Quotes eld
+\end_inset
+
+Blind Image Steganalysis via Joint Co-occurence Matrix and Statistival Moments
+ of Contourlet Transform
+\begin_inset Quotes erd
+\end_inset
+
+ 10th International Conference on Intelligent Systems Design and Applications,
+ IEEE.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "10"
+key "key-10"
+
+\end_inset
+
+Han Zong, Fen-lin Liu, Xiang-yang Luo (2012) 
+\begin_inset Quotes eld
+\end_inset
+
+Blind image steganalysis based on wavelet coefficient correlation
+\begin_inset Quotes erd
+\end_inset
+
+ Digital Investigation.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "11"
+key "key-11"
+
+\end_inset
+
+Pedram Hayatil, Vidyasagar Potdar 
+\begin_inset Quotes eld
+\end_inset
+
+A Survey of Steganographic and Steganalytic Tools for the Digital Forensic
+ Investigator
+\begin_inset Quotes erd
+\end_inset
+
+ Curtin University of Technology, Perth, Australia.
+ 
+\end_layout
+
+\end_body
+\end_document
