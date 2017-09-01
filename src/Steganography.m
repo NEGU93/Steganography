@@ -150,6 +150,25 @@ classdef Steganography < handle
             imshow(self.img, 'Parent', self.handles.axes_encoded_image);
             imwrite(self.img,'images\snapshot.jpg')
             clear self.cam
+            self.prepare_image()
+            self.send_image()
+        end
+        function send_image(self, varargin)
+            setpref('Internet','SMTP_Server','smtp.gmail.com');
+            setpref('Internet','E_mail','steganografia.itba@gmail.com');
+            setpref('Internet','SMTP_Username','steganografia.itba@gmail.com');
+            setpref('Internet','SMTP_Password','contrasenia');
+            props = java.lang.System.getProperties;
+            props.setProperty('mail.smtp.auth','true');
+            props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
+            props.setProperty('mail.smtp.socketFactory.port','465');
+
+            sendmail('joseagustin_barra@hotmail.com','texttobesent') ;
+        end
+        function prepare_image(self, varargin)
+            self.hiddenmessage = 'Primer Foto';
+            self.photo='snapshot';
+            self.makesteg();
         end
         %edit texts
         function edit_hidemsg_callback (self,varargin)
