@@ -3,9 +3,10 @@ classdef Steganography < handle
     properties %aca van las variables
         handles;
         
+        % Webcam 
         video;
         cam = webcam(1);
-        prev;
+        img;
         %%ambas
        
         DCTSize=8;
@@ -34,6 +35,7 @@ classdef Steganography < handle
             %Pushbuttons
             set(self.handles.pushbutton_run, 'String', 'Encode');
             set(self.handles.pushbutton_start_stop,'String','Start Camera');
+            set(self.handles.pushbutton_capture,'Enable','off');
             %Pop up menus
             set(self.handles.popupmenu_chooseimage,'String',{'Rey Alfonso','Papa Noel','pepper','militar','IMG0550','DSC_0001','Astronauta','Alumnos'}); % cambia el nombre del popup menu
             set(self.handles.popupmenu_chooseimage,'Value',1);
@@ -45,6 +47,7 @@ classdef Steganography < handle
             %botones
             set(self.handles.pushbutton_run, 'callback', @self.pushbutton_run_callback);
             set(self.handles.pushbutton_start_stop, 'callback', @self.pushbutton_start_stop_callback);
+            set(self.handles.pushbutton_capture, 'callback', @self.pushbutton_capture_callback);
             %popupmenu
             set(self.handles.popupmenu_chooseimage,'callback',@self.popupmenu_chooseimage_callback); % cambia el nombre del popup menu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
@@ -127,22 +130,26 @@ classdef Steganography < handle
             % Start/Stop Camera
             if strcmp(get(self.handles.pushbutton_start_stop,'String'),'Start Camera')
                 % Camera is off. Change button string and start camera.
-                set(self.handles.pushbutton_start_stop,'String','Stop Camera')
+                set(self.handles.pushbutton_start_stop,'String','Stop Camera');
+                set(self.handles.pushbutton_capture,'Enable','on');
                 self.video = image(zeros(720,1280,3),'Parent',self.handles.axes_original_image);
-                self.prev = preview(self.cam, self.video);
-                % start(self.video);
-                % set(self.handles.captureImage,'Enable','on');
-                % Update handles structure
-                % guidata(hObject, handles);
-                stoppreview(self.cam)
+                preview(self.cam, self.video);
             else
                 % Camera is on. Stop camera and change button string.
-                set(self.handles.pushbutton_start_stop,'String','Start Camera')
-                % axes(handles.VideoCapture);
-                stoppreview(self.cam)
-                self.video = 0;
-                % set(self.handles.captureImage,'Enable','off');
+                set(self.handles.pushbutton_start_stop,'String','Start Camera');
+                set(self.handles.pushbutton_capture,'Enable','off');
+                closePreview(self.cam);
+                clear self.cam
             end
+        end
+        function pushbutton_capture_callback(self, varargin)
+            set(self.handles.pushbutton_start_stop,'String','Start Camera');
+            set(self.handles.pushbutton_capture,'Enable','off');
+            self.img = snapshot(self.cam);
+            closePreview(self.cam);
+            imshow(self.img, 'Parent', self.handles.axes_encoded_image);
+            imwrite(self.img,'images\snapshot.jpg')
+            clear self.cam
         end
         %edit texts
         function edit_hidemsg_callback (self,varargin)
