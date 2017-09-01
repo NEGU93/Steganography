@@ -2,8 +2,12 @@ classdef Steganography < handle
     %% Variables
     properties %aca van las variables
         handles;
-        %%ambas
         
+        video;
+        cam = webcam(1);
+        prev;
+        %%ambas
+       
         DCTSize=8;
         Repetition=4;
         Spread=false;
@@ -29,6 +33,7 @@ classdef Steganography < handle
             %%Seteos:
             %Pushbuttons
             set(self.handles.pushbutton_run, 'String', 'Encode');
+            set(self.handles.pushbutton_start_stop,'String','Start Camera');
             %Pop up menus
             set(self.handles.popupmenu_chooseimage,'String',{'Rey Alfonso','Papa Noel','pepper','militar','IMG0550','DSC_0001','Astronauta','Alumnos'}); % cambia el nombre del popup menu
             set(self.handles.popupmenu_chooseimage,'Value',1);
@@ -39,6 +44,7 @@ classdef Steganography < handle
             %%------Set callbacks-------------------        
             %botones
             set(self.handles.pushbutton_run, 'callback', @self.pushbutton_run_callback);
+            set(self.handles.pushbutton_start_stop, 'callback', @self.pushbutton_start_stop_callback);
             %popupmenu
             set(self.handles.popupmenu_chooseimage,'callback',@self.popupmenu_chooseimage_callback); % cambia el nombre del popup menu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
@@ -57,7 +63,6 @@ classdef Steganography < handle
             set(self.handles.radiobutton_decode, 'callback', @self.radiobutton_decode_callback);
             set(self.handles.radiobutton_spread,'callback',@self.radiobutton_spread_callback);
         end
-        
         %% ----Hago los callbacks es decir las funciones-----
         %pushbutton
         function pushbutton_run_callback(self, varargin)
@@ -117,6 +122,27 @@ classdef Steganography < handle
                  msgbox('No valid file entered, verify it is in the correct folder (endoded) and the file is correcly written');
                 return
             end   
+        end
+        function pushbutton_start_stop_callback(self, varargin)
+            % Start/Stop Camera
+            if strcmp(get(self.handles.pushbutton_start_stop,'String'),'Start Camera')
+                % Camera is off. Change button string and start camera.
+                set(self.handles.pushbutton_start_stop,'String','Stop Camera')
+                self.video = image(zeros(720,1280,3),'Parent',self.handles.axes_original_image);
+                self.prev = preview(self.cam, self.video);
+                % start(self.video);
+                % set(self.handles.captureImage,'Enable','on');
+                % Update handles structure
+                % guidata(hObject, handles);
+                stoppreview(self.cam)
+            else
+                % Camera is on. Stop camera and change button string.
+                set(self.handles.pushbutton_start_stop,'String','Start Camera')
+                % axes(handles.VideoCapture);
+                stoppreview(self.cam)
+                self.video = 0;
+                % set(self.handles.captureImage,'Enable','off');
+            end
         end
         %edit texts
         function edit_hidemsg_callback (self,varargin)
