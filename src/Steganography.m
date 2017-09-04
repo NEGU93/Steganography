@@ -3,6 +3,9 @@ classdef Steganography < handle
     properties %aca van las variables
         handles;
         
+        %mail
+        mail
+        
         % Webcam 
         video;
         cam = webcam(1);
@@ -37,9 +40,6 @@ classdef Steganography < handle
             set(self.handles.pushbutton_start_stop,'String','Start Camera');
             set(self.handles.pushbutton_capture,'Enable','off');
             %Pop up menus
-            set(self.handles.popupmenu_chooseimage,'String',{'Rey Alfonso','Papa Noel','pepper','militar','IMG0550','DSC_0001','Astronauta','Alumnos'}); % cambia el nombre del popup menu
-            set(self.handles.popupmenu_chooseimage,'Value',1);
-            self.popupmenu_chooseimage_callback()
             set(self.handles.popupmenu_quality,'String',{'100','95','90','85','80','75','70','60','50'})
             set(self.handles.popupmenu_quality,'Value',5); 
             self.popupmenu_quality_callback()
@@ -48,8 +48,8 @@ classdef Steganography < handle
             set(self.handles.pushbutton_run, 'callback', @self.pushbutton_run_callback);
             set(self.handles.pushbutton_start_stop, 'callback', @self.pushbutton_start_stop_callback);
             set(self.handles.pushbutton_capture, 'callback', @self.pushbutton_capture_callback);
+            set(self.handles.pushbutton_upload, 'callback', @self.pushbutton_upload_callback);
             %popupmenu
-            set(self.handles.popupmenu_chooseimage,'callback',@self.popupmenu_chooseimage_callback); % cambia el nombre del popup menu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
             %edit texts:
             set(self.handles.edit_hidemsg,'callback',@self.edit_hidemsg_callback);
@@ -60,7 +60,6 @@ classdef Steganography < handle
             set(self.handles.edit_dct,'String',self.DCTSize);
             set(self.handles.edit_repetition,'callback',@self.edit_repetition_callback);
             set(self.handles.edit_repetition,'String',self.Repetition);
-            
             %Radio Button
             set(self.handles.radiobutton_encode, 'callback', @self.radiobutton_encode_callback);
             set(self.handles.radiobutton_decode, 'callback', @self.radiobutton_decode_callback);
@@ -76,18 +75,21 @@ classdef Steganography < handle
             end
         end
         function makesteg(self, varargin)
-            if isempty(self.hiddenmessage)
-                msgbox('No message to hide was entered, please insert one');
-                return
-            end
-           h = msgbox('encoding, please wait...', 'Loading');
+          if isempty(self.hiddenmessage)
+               msgbox('No message to hide was entered, please insert one');
+               return
+          end
+          if strcmp(self.photo, '')
+              self.pushbutton_upload_callback();
+          end
+            h = msgbox('encoding, please wait...', 'Loading');
            child = get(h, 'Children');
            delete(child(1));
            drawnow;
            set(self.handles.text_hidden_msg, 'String', self.hiddenmessage);
            %%para medir la psnr y ssim
-           original=imread(strcat(self.photo, '.jpg'));
-           retocada=encoderStegFinal(self.hiddenmessage,strcat('images\', self.photo, '.jpg'),strcat('encoded\', self.decoFile, '.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
+           original=imread(self.photo);
+           retocada=encoderStegFinal(self.hiddenmessage,self.photo, strcat('encoded\', self.decoFile, '.jpg'),self.quality,self.Spread,self.DCTSize,self.Repetition);
            [psnr,ssim,map] = evaluateDeterioration(retocada,original);
            % figure('Name','Comparison','NumberTitle','off');
            % image(self.handles.axes_original_image, original)
@@ -122,7 +124,7 @@ classdef Steganography < handle
                 delete(h)
                 % set(msgbox(string,sprintf('Mensaje decodificado (HR=%.2f porciento )',porcentaje)), 'position', [100 440 400 50]);
             else
-                 msgbox('No valid file entered, verify it is in the correct folder (endoded) and the file is correcly written');
+                msgbox('No valid file entered, verify the file is in the correct folder (../endoded/) and the file name is correcly written');
                 return
             end   
         end
@@ -151,13 +153,13 @@ classdef Steganography < handle
             imwrite(self.img,'images\snapshot.jpg')
             clear self.cam
             % Encode and send images
-            answer = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
-            self.prepare_image('Primera Foto')
-            self.send_image(answer, 'Primera Foto')
-            self.prepare_image('Segunda Foto')
-            self.send_image(answer, 'Segunda Foto')
+            self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
+            % self.prepare_image('Primera Foto')
+            self.send_image('Primera Foto')
+            % self.prepare_image('Segunda Foto')
+            self.send_image('Segunda Foto')
         end
-        function send_image(self, answer, asunto, varargin)
+        function send_image(self, asunto, varargin)
             setpref('Internet','SMTP_Server','smtp.gmail.com');
             setpref('Internet','E_mail','steganografia.itba@gmail.com');
             setpref('Internet','SMTP_Username','steganografia.itba@gmail.com');
@@ -167,12 +169,16 @@ classdef Steganography < handle
             props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
             props.setProperty('mail.smtp.socketFactory.port','465');
             
-            sendmail(answer,asunto);
+            sendmail(self.mail, asunto, 'Gracias por visitar nuestro stand.\n Para descargar el código visitar ');
         end
         function prepare_image(self, msg, varargin)
             self.hiddenmessage = msg;
-            self.photo='snapshot';
+            self.photo='snapshot.jpg';
             self.makesteg();
+        end
+        function pushbutton_upload_callback(self, varargin)
+            [name, path] = uigetfile({'*.jpg';'*.bmp';'*.png';'*.*'},'File Selector');
+            self.photo = strcat(path, name);
         end
         %edit texts
         function edit_hidemsg_callback (self,varargin)
@@ -212,26 +218,6 @@ classdef Steganography < handle
             end
         end
         %popupmenu
-        function popupmenu_chooseimage_callback(self,varargin)
-            switch get(self.handles.popupmenu_chooseimage,'Value') %%es el valor de la posición del string que elegi
-                case 1
-                    self.photo='Rey_Alfonso';
-                case 2
-                    self.photo='PapaNoel';
-                case 3
-                    self.photo='pepper';    % TODO: this image is a bmp
-                case 4
-                    self.photo='militar';
-                case 5
-                    self.photo='IMG_0550';
-                case 6
-                    self.photo='DSC_0001';
-                case 7
-                    self.photo='Astronauta';
-                case 8
-                    self.photo='Alumnos';
-            end
-        end
         function popupmenu_quality_callback(self,varargin)
             switch get(self.handles.popupmenu_quality,'Value') %%es el valor de la posición del string que elegi
                 case 1
@@ -267,14 +253,14 @@ classdef Steganography < handle
             set(self.handles.edit_hidemsg, 'Enable', 'on');
             set(self.handles.text_output_file, 'String', 'Output File:')
             set(self.handles.pushbutton_run, 'String', 'Encode');
-            set(self.handles.popupmenu_chooseimage, 'Enable', 'on');
+            set(self.handles.pushbutton_upload, 'Enable', 'on');
         end
         function radiobutton_decode_callback (self, varargin)
             self.Encode = false;
             set(self.handles.edit_hidemsg, 'Enable', 'off');
             set(self.handles.text_output_file, 'String', 'Encoded File:')
             set(self.handles.pushbutton_run, 'String', 'Decode');
-            set(self.handles.popupmenu_chooseimage, 'Enable', 'off');
+            set(self.handles.pushbutton_upload, 'Enable', 'off');
         end
     end
 end

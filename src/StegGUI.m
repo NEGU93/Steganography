@@ -22,7 +22,7 @@ function varargout = StegGUI(varargin)
 
 % Edit the above text to modify the response to help StegGUI
 
-% Last Modified by GUIDE v2.5 01-Sep-2017 13:26:36
+% Last Modified by GUIDE v2.5 01-Sep-2017 17:02:24
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -288,5 +288,12 @@ function pushbutton_start_stop_Callback(hObject, eventdata, handles)
 % --- Executes on button press in pushbutton_capture.
 function pushbutton_capture_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton_capture (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton_upload.
+function pushbutton_upload_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_upload (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
