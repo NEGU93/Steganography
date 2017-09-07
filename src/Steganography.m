@@ -49,6 +49,7 @@ classdef Steganography < handle
             set(self.handles.pushbutton_start_stop, 'callback', @self.pushbutton_start_stop_callback);
             set(self.handles.pushbutton_capture, 'callback', @self.pushbutton_capture_callback);
             set(self.handles.pushbutton_upload, 'callback', @self.pushbutton_upload_callback);
+            set(self.handles.pushbutton_mail_demo, 'callback', @self.pushbutton_mail_demo_callback);
             %popupmenu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
             %edit texts:
@@ -74,12 +75,81 @@ classdef Steganography < handle
                 self.decode()
             end
         end
+        function pushbutton_start_stop_callback(self, varargin)
+            % Start/Stop Camera
+            if strcmp(get(self.handles.pushbutton_start_stop,'String'),'Start Camera')
+                % Camera is off. Change button string and start camera.
+                set(self.handles.pushbutton_start_stop,'String','Stop Camera');
+                set(self.handles.pushbutton_capture,'Enable','on');
+                self.video = image(zeros(720,1280,3),'Parent',self.handles.axes_original_image);
+                preview(self.cam, self.video);
+            else
+                % Camera is on. Stop camera and change button string.
+                set(self.handles.pushbutton_start_stop,'String','Start Camera');
+                set(self.handles.pushbutton_capture,'Enable','off');
+                closePreview(self.cam);
+                clear self.cam
+            end
+        end
+        function pushbutton_capture_callback(self, varargin)
+            set(self.handles.pushbutton_start_stop,'String','Start Camera');
+            set(self.handles.pushbutton_capture,'Enable','off');
+            self.img = snapshot(self.cam);
+            closePreview(self.cam);
+            imshow(self.img, 'Parent', self.handles.axes_encoded_image);
+            imwrite(self.img,'images\snapshot.jpg')
+            clear self.cam
+            % Encode and send images
+            self.photo='snapshot.jpg';
+            self.decoFile='snapshot';
+            self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
+            self.prepare_image('Primera Foto')
+            self.send_image('Primera Foto')
+            self.prepare_image('Segunda Foto')
+            self.send_image('Segunda Foto')
+        end
+        function pushbutton_upload_callback(self, varargin)
+            [name, path] = uigetfile({'*.jpg';'*.bmp';'*.png';'*.*'},'File Selector');
+            self.photo = strcat(path, name);
+            set(self.handles.text_photo, 'String', name);
+        end
+        function pushbutton_mail_demo_callback(self, varargin)
+            self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
+            self.decoFile='mailDemo';
+            self.prepare_image('Primera Foto')
+            self.send_image('Primera Foto')
+            self.prepare_image('Segunda Foto')
+            self.send_image('Segunda Foto')
+        end
+        function send_image(self, asunto, varargin)
+            % Mensaje
+            messageBody = sprintf('Gracias por visitar nuestro stand.');
+            messageBody = sprintf('%s\nPara descargar el código visitar https://github.com/NEGU93/Steganography', messageBody);
+            messageBody = sprintf('%s\n   ', messageBody);
+            messageBody = sprintf('%s\n\nAlumnos:', messageBody);
+            messageBody = sprintf('%s\n   Nahuel Aguilar, Agustin Barrachina, Gonzalo Castelli, Augusto Viotti Bozzini', messageBody);
+            % Mail
+            setpref('Internet','SMTP_Server','smtp.gmail.com');
+            setpref('Internet','E_mail','steganografia.itba@gmail.com');
+            setpref('Internet','SMTP_Username','steganografia.itba@gmail.com');
+            setpref('Internet','SMTP_Password','contrasenia');
+            props = java.lang.System.getProperties;
+            props.setProperty('mail.smtp.auth','true');
+            props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
+            props.setProperty('mail.smtp.socketFactory.port','465');
+            
+            sendmail(self.mail, asunto, messageBody, strcat('encoded\', self.decoFile, '.jpg'));
+        end
+        function prepare_image(self, msg, varargin)
+            self.hiddenmessage = msg;
+            self.makesteg();
+        end
         function makesteg(self, varargin)
           if isempty(self.hiddenmessage)
                msgbox('No message to hide was entered, please insert one');
                return
           end
-          if strcmp(self.photo, '')
+          while strcmp(self.photo, '') || isempty(self.photo)
               self.pushbutton_upload_callback();
           end
             h = msgbox('encoding, please wait...', 'Loading');
@@ -127,58 +197,6 @@ classdef Steganography < handle
                 msgbox('No valid file entered, verify the file is in the correct folder (../endoded/) and the file name is correcly written');
                 return
             end   
-        end
-        function pushbutton_start_stop_callback(self, varargin)
-            % Start/Stop Camera
-            if strcmp(get(self.handles.pushbutton_start_stop,'String'),'Start Camera')
-                % Camera is off. Change button string and start camera.
-                set(self.handles.pushbutton_start_stop,'String','Stop Camera');
-                set(self.handles.pushbutton_capture,'Enable','on');
-                self.video = image(zeros(720,1280,3),'Parent',self.handles.axes_original_image);
-                preview(self.cam, self.video);
-            else
-                % Camera is on. Stop camera and change button string.
-                set(self.handles.pushbutton_start_stop,'String','Start Camera');
-                set(self.handles.pushbutton_capture,'Enable','off');
-                closePreview(self.cam);
-                clear self.cam
-            end
-        end
-        function pushbutton_capture_callback(self, varargin)
-            set(self.handles.pushbutton_start_stop,'String','Start Camera');
-            set(self.handles.pushbutton_capture,'Enable','off');
-            self.img = snapshot(self.cam);
-            closePreview(self.cam);
-            imshow(self.img, 'Parent', self.handles.axes_encoded_image);
-            imwrite(self.img,'images\snapshot.jpg')
-            clear self.cam
-            % Encode and send images
-            self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
-            % self.prepare_image('Primera Foto')
-            self.send_image('Primera Foto')
-            % self.prepare_image('Segunda Foto')
-            self.send_image('Segunda Foto')
-        end
-        function send_image(self, asunto, varargin)
-            setpref('Internet','SMTP_Server','smtp.gmail.com');
-            setpref('Internet','E_mail','steganografia.itba@gmail.com');
-            setpref('Internet','SMTP_Username','steganografia.itba@gmail.com');
-            setpref('Internet','SMTP_Password','contrasenia');
-            props = java.lang.System.getProperties;
-            props.setProperty('mail.smtp.auth','true');
-            props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
-            props.setProperty('mail.smtp.socketFactory.port','465');
-            
-            sendmail(self.mail, asunto, 'Gracias por visitar nuestro stand.\n Para descargar el código visitar ');
-        end
-        function prepare_image(self, msg, varargin)
-            self.hiddenmessage = msg;
-            self.photo='snapshot.jpg';
-            self.makesteg();
-        end
-        function pushbutton_upload_callback(self, varargin)
-            [name, path] = uigetfile({'*.jpg';'*.bmp';'*.png';'*.*'},'File Selector');
-            self.photo = strcat(path, name);
         end
         %edit texts
         function edit_hidemsg_callback (self,varargin)

@@ -3,6 +3,9 @@ classdef Steganography < handle
     properties %aca van las variables
         handles;
         
+        %mail
+        mail
+        
         % Webcam 
         video;
         cam = webcam(1);
@@ -46,6 +49,7 @@ classdef Steganography < handle
             set(self.handles.pushbutton_start_stop, 'callback', @self.pushbutton_start_stop_callback);
             set(self.handles.pushbutton_capture, 'callback', @self.pushbutton_capture_callback);
             set(self.handles.pushbutton_upload, 'callback', @self.pushbutton_upload_callback);
+            set(self.handles.pushbutton_mail_demo, 'callback', @self.pushbutton_mail_demo_callback);
             %popupmenu
             set(self.handles.popupmenu_quality,'callback',@self.popupmenu_quality_callback);
             %edit texts:
@@ -70,6 +74,13 @@ classdef Steganography < handle
             else
                 self.decode()
             end
+        end
+        function pushbutton_mail_demo_callback(self, varargin)
+            self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
+            self.prepare_image('Primera Foto')
+            self.send_image('Primera Foto')
+            self.prepare_image('Segunda Foto')
+            self.send_image('Segunda Foto')
         end
         function makesteg(self, varargin)
           if isempty(self.hiddenmessage)
@@ -150,13 +161,26 @@ classdef Steganography < handle
             imwrite(self.img,'images\snapshot.jpg')
             clear self.cam
             % Encode and send images
-            answer = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
-            % self.prepare_image('Primera Foto')
-            self.send_image(answer, 'Primera Foto')
-            % self.prepare_image('Segunda Foto')
-            self.send_image(answer, 'Segunda Foto')
+            self.photo='snapshot.jpg';
+            self.decoFile='snapshot';
+            self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
+            self.prepare_image('Primera Foto')
+            self.send_image('Primera Foto')
+            self.prepare_image('Segunda Foto')
+            self.send_image('Segunda Foto')
         end
-        function send_image(mail, asunto, varargin)
+        function pushbutton_upload_callback(self, varargin)
+            [name, path] = uigetfile({'*.jpg';'*.bmp';'*.png';'*.*'},'File Selector');
+            self.photo = strcat(path, name);
+        end
+        function send_image(self, asunto, varargin)
+            % Mensaje
+            messageBody = sprintf('Gracias por visitar nuestro stand.');
+            messageBody = sprintf('%s\nPara descargar el código visitar https://github.com/NEGU93/Steganography', messageBody);
+            messageBody = sprintf('%s\n   ', messageBody);
+            messageBody = sprintf('%s\n\nAlumnos:', messageBody);
+            messageBody = sprintf('%s\n   Nahuel Aguilar, Agustin Barrachina, Gonzalo Castelli, Augusto Viotti Bozzini', messageBody);
+            % Mail
             setpref('Internet','SMTP_Server','smtp.gmail.com');
             setpref('Internet','E_mail','steganografia.itba@gmail.com');
             setpref('Internet','SMTP_Username','steganografia.itba@gmail.com');
@@ -166,17 +190,11 @@ classdef Steganography < handle
             props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
             props.setProperty('mail.smtp.socketFactory.port','465');
             
-            disp(mail)
-            sendmail(mail, 'asunto');
+            sendmail(self.mail, asunto, messageBody, strcat('encoded\', self.decoFile, '.jpg'));
         end
         function prepare_image(self, msg, varargin)
             self.hiddenmessage = msg;
-            self.photo='snapshot.jpg';
             self.makesteg();
-        end
-        function pushbutton_upload_callback(self, varargin)
-            [name, path] = uigetfile({'*.jpg';'*.bmp';'*.png';'*.*'},'File Selector');
-            self.photo = strcat(path, name);
         end
         %edit texts
         function edit_hidemsg_callback (self,varargin)

@@ -146,7 +146,7 @@
 % end
 % C.Cmd('LiveViewWnd_Hide');                    %stop live view
 % 
-%Ex: debuging
+%Ex: debughttps://github.com/NEGU93/Steganographying
 % C = CameraController;
 % C.Clock      %show a clock with milliseconds
 % C.dbg = 2;   %display commands and replies
