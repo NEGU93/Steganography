@@ -101,7 +101,8 @@ classdef Steganography < handle
             clear self.cam
             % Encode and send images
             self.photo='snapshot.jpg';
-            self.decoFile='snapshot';
+            set(self.handles.text_photo, 'String', 'USB cam');
+            self.decoFile='mailDemo';
             self.mail = inputdlg('Please enter yout email', 'email', [1 50], {'example@gmail.com'});
             self.prepare_image('Primera Foto')
             self.send_image('Primera Foto')
@@ -123,7 +124,7 @@ classdef Steganography < handle
         end
         function send_image(self, asunto, varargin)
             % Mensaje
-            messageBody = sprintf('Gracias por visitar nuestro stand.');
+            messageBody = sprintf('Gracias por visitar nuestro stan.');
             messageBody = sprintf('%s\nPara descargar el código visitar https://github.com/NEGU93/Steganography', messageBody);
             messageBody = sprintf('%s\n   ', messageBody);
             messageBody = sprintf('%s\n\nAlumnos:', messageBody);
@@ -138,7 +139,7 @@ classdef Steganography < handle
             props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
             props.setProperty('mail.smtp.socketFactory.port','465');
             
-            sendmail(self.mail, asunto, messageBody, strcat('encoded\', self.decoFile, '.jpg'));
+            sendmail(self.mail, asunto, messageBody, strcat('encoded/', self.decoFile, '.jpg'));
         end
         function prepare_image(self, msg, varargin)
             self.hiddenmessage = msg;
