@@ -124,7 +124,7 @@ classdef Steganography < handle
         end
         function send_image(self, asunto, varargin)
             % Mensaje
-            messageBody = sprintf('Gracias por visitar nuestro stan.');
+            messageBody = sprintf('Gracias por visitar nuestro stand.');
             messageBody = sprintf('%s\nPara descargar el código visitar https://github.com/NEGU93/Steganography', messageBody);
             messageBody = sprintf('%s\n   ', messageBody);
             messageBody = sprintf('%s\n\nAlumnos:', messageBody);
@@ -143,6 +143,7 @@ classdef Steganography < handle
         end
         function prepare_image(self, msg, varargin)
             self.hiddenmessage = msg;
+            set(self.handles.edit_hidemsg,'String', self.hiddenmessage);
             self.makesteg();
         end
         function makesteg(self, varargin)
