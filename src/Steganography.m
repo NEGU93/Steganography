@@ -131,7 +131,8 @@ classdef Steganography < handle
             messageBody = sprintf('%s\n   Nahuel Aguilar, Agustin Barrachina, Gonzalo Castelli, Augusto Viotti Bozzini', messageBody);
             % Mail
             setpref('Internet','SMTP_Server','smtp.gmail.com');
-            setpref('Internet','E_mail','steganografia.itba@gmail.com');
+            % TODO: poner el mail a usar para enviar las imágenes.
+            setpref('Internet','E_mail','ejemplo@gmail.com');
             setpref('Internet','SMTP_Username','steganografia.itba@gmail.com');
             setpref('Internet','SMTP_Password','contrasenia');
             props = java.lang.System.getProperties;
