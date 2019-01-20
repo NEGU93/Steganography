@@ -6,3 +6,5 @@ Done by:
   J. Agustín Barrachina
   Augusto Viotti Bozini
   Gonzalo Castelli
+
+![](poster_feria.png)
